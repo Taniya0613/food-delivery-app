@@ -1,0 +1,112 @@
+.menu-page {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
+  padding: 24px;
+  background: linear-gradient(135deg, #fff7f0 0%, #f7faff 100%);
+  animation: bgFadeIn 1.2s;
+}
+
+@keyframes bgFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 32px;
+  animation: fadeInMenu 1s;
+}
+
+.menu-header h1 {
+  font-size: 2.8rem;
+  color: tomato;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.menu-header p {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 32px;
+}
+
+.menu-loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  padding: 40px 0;
+}
+
+.menu-fade-in {
+  animation: fadeInMenu 0.8s ease;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Staggered animation for each card */
+.menu-fade-in:nth-child(1) { animation-delay: 0.05s; }
+.menu-fade-in:nth-child(2) { animation-delay: 0.12s; }
+.menu-fade-in:nth-child(3) { animation-delay: 0.19s; }
+.menu-fade-in:nth-child(4) { animation-delay: 0.26s; }
+.menu-fade-in:nth-child(5) { animation-delay: 0.33s; }
+.menu-fade-in:nth-child(6) { animation-delay: 0.40s; }
+.menu-fade-in:nth-child(7) { animation-delay: 0.47s; }
+.menu-fade-in:nth-child(8) { animation-delay: 0.54s; }
+.menu-fade-in:nth-child(9) { animation-delay: 0.61s; }
+.menu-fade-in:nth-child(10) { animation-delay: 0.68s; }
+
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Card hover effect */
+.menu-list .food-item {
+  transition: transform 0.25s cubic-bezier(.4,2,.3,1), box-shadow 0.25s, border 0.25s;
+  border: 2px solid #fff7f0;
+  box-shadow: 0 2px 12px 0 #00000010;
+  background: #fff;
+}
+.menu-list .food-item:hover {
+  transform: scale(1.045) translateY(-6px);
+  box-shadow: 0 8px 32px 0 #ff704340;
+  border: 2px solid #ff7043;
+  z-index: 2;
+}
+
+/* Add/remove button animation */
+.food-item-img-container .add,
+.food-item-counter img {
+  transition: transform 0.18s cubic-bezier(.4,2,.3,1), box-shadow 0.18s;
+}
+.food-item-img-container .add:hover,
+.food-item-counter img:hover {
+  transform: scale(1.18) rotate(-8deg);
+  box-shadow: 0 2px 8px #ff704340;
+}
+
+/* Optional: filter bar placeholder */
+.menu-filter-bar {
+  min-height: 48px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  /* Add filter bar styles here if needed */
+} 

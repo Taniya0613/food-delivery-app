@@ -1,0 +1,233 @@
+.navbar {
+    padding:20px 0px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+.navbar .logo {
+    width: 150px;
+}
+
+.navbar-menu{
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  color: #49557e;
+  font-size: 18px;
+}
+
+.navbar-right{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar button{
+  background: transparent;
+  font-size: 16px;
+  color: #49557e;
+  border: 1px solid tomato;
+  padding: 10px 30px; 
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar button:hover{
+  background-color: #fff4f2;
+}
+
+.navbar .active{
+  padding-bottom: 2px;
+  border-bottom: 2px solid #49557e;
+}
+
+.navbar li{
+  cursor: pointer;
+}
+
+.navbar-search-icon{
+  position: relative;
+}
+
+.navbar-search-icon .dot{
+  position: absolute;
+  min-width:10px;
+  min-height: 10px;
+  background-color: tomato;
+  border-radius: 5px;
+  top: -8px;
+  right: -8px;
+}
+.navbar-profile{
+  position: relative;
+}
+.nav-profile-dropdown{
+  position: absolute;
+  display: none;
+  right: 0;
+  z-index: 1;
+}
+.navbar-profile:hover .nav-profile-dropdown{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff2ef;
+  padding: 12px 25px;
+  border-radius: 4px;
+  border: 1px solid tomato;
+  outline: 2px solid white;
+  list-style: none;
+}
+.nav-profile-dropdown li{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.nav-profile-dropdown img{
+  width: 20px;
+}
+.nav-profile-dropdown li:hover{
+  color: tomato;
+}
+@media(max-width:1050px){
+  .navbar .logo{
+    width: 140px;
+  }
+  .navbar-menu{
+    gap: 20px;
+    font-size: 17px;
+  }
+  .navbar-right{
+    gap: 30px;
+  }
+  .navbar-right img{
+    width: 22px;
+  }
+  .navbar-right button{
+    padding: 8px 25px;
+  }
+}
+
+@media(max-width:900px){
+  .navbar .logo{
+    width: 120px;
+  }
+  .navbar-menu{
+    gap: 15px;
+    font-size: 16px;
+  }
+  .navbar-right{
+    gap: 20px;
+  }
+  .navbar-right img{
+    width: 20px;
+  }
+  .navbar-right button{
+    padding: 7px 20px;
+    font-size: 15px;
+  }
+}
+
+@media(max-width:750px){
+  .navbar-menu{
+   display: none;
+  }
+}
+
+.navbar-search-dropdown-container {
+  position: fixed;
+  right: 40px;
+  top: 80px;
+  z-index: 2100;
+  min-width: 260px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.navbar-search-input {
+  position: static;
+  width: 100%;
+  min-width: 260px;
+  max-width: 350px;
+  margin-bottom: 0;
+  padding: 12px 28px;
+  border: 2px solid #ff7043;
+  border-radius: 24px;
+  font-size: 18px;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 4px 24px #ff704340;
+  z-index: 2000;
+  transition: box-shadow 0.22s, border 0.22s, transform 0.22s, opacity 0.22s;
+  text-align: left;
+  animation: searchPopIn 0.32s cubic-bezier(.4,2,.3,1);
+  opacity: 1;
+}
+
+@keyframes searchPopIn {
+  0% { opacity: 0; transform: scale(0.95) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.navbar-search-input:focus {
+  border: 2.5px solid #ff7043;
+  box-shadow: 0 8px 32px #ff704340;
+  background: #fff7f0;
+}
+
+.navbar-search-dropdown {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border: 1.5px solid #ff7043;
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 8px 32px #ff704340;
+  max-height: 260px;
+  overflow-y: auto;
+  font-size: 17px;
+  width: 100%;
+}
+
+.navbar-search-dropdown li {
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  color: #333;
+}
+
+.navbar-search-dropdown li.highlighted,
+.navbar-search-dropdown li:hover {
+  background: #fff7f0;
+  color: #ff7043;
+}
+
+.navbar-search-noresult {
+  background: #fff;
+  border: 1.5px solid #ff7043;
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 8px 32px #ff704340;
+  padding: 16px 24px;
+  color: #888;
+  font-size: 16px;
+  width: 100%;
+}
+
+.navbar-search-category {
+  padding: 10px 24px 4px 24px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ff7043;
+  background: #fff;
+  border-bottom: 1px solid #ffe0c3;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  letter-spacing: 0.2px;
+}
