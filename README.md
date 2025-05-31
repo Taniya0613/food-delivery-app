@@ -48,5 +48,3 @@ Admins can:
 
 ---
 
-## 📂 Project Structure
-
