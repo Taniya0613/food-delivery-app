@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "react-window": "^1.8.11"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm --prefix backend run server\" \"npm --prefix frontend run dev\" \"npm --prefix admin run dev\""
   }
 }

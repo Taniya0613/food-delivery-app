@@ -231,3 +231,22 @@
   margin-bottom: 2px;
   letter-spacing: 0.2px;
 }
+
+.admin-link {
+  border-radius: 50px;
+  padding: 8px 22px;
+  border: 1.5px solid #ff7043;
+  background: #fff7f0;
+  color: #ff7043;
+  font-weight: 500;
+  transition: background 0.18s, border 0.18s, color 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.admin-link:hover {
+  background: #ff7043;
+  color: #fff;
+  border: 1.5px solid #ff7043;
+}

@@ -15,13 +15,19 @@ import { useState, useEffect } from "react";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    () => !!localStorage.getItem("token")
+  );
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLogin((prev) => prev || true);
-    }, 10000);
-    return () => clearTimeout(timer);
-  }, []);
+    let interval;
+    if (!isLoggedIn) {
+      interval = setInterval(() => {
+        setShowLogin(true);
+      }, 5000);
+    }
+    return () => clearInterval(interval);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (showLogin) {
@@ -34,9 +40,19 @@ const App = () => {
     };
   }, [showLogin]);
 
+  // When popup is closed (user logs in), update state
+  const handleCloseLogin = (loggedIn = false) => {
+    setShowLogin(false);
+    if (loggedIn) {
+      setIsLoggedIn(true);
+    }
+  };
+
   return (
     <>
-      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+      {showLogin && !isLoggedIn ? (
+        <LoginPopup setShowLogin={handleCloseLogin} />
+      ) : null}
       <div className="app">
         {/* <Navbar setShowLogin={setShowLogin} /> */}
         <Routes>
