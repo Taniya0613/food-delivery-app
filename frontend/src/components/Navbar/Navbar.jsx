@@ -80,22 +80,40 @@ const Navbar = ({ setShowLogin, setSearchTerm, searchTerm }) => {
           home
         </Link>
         <a
-          href="#explore-menu"
-          onClick={() => setMenu("menu")}
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            setMenu("menu");
+            document
+              .getElementById("explore-menu")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
           className={menu === "menu" ? "active" : ""}
         >
           menu
         </a>
         <a
-          href="#app-download"
-          onClick={() => setMenu("mobile-app")}
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            setMenu("mobile-app");
+            document
+              .getElementById("app-download")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
           className={menu === "mobile-app" ? "active" : ""}
         >
           mobile-app
         </a>
         <a
-          href="#footer"
-          onClick={() => setMenu("contact-us")}
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            setMenu("contact-us");
+            document
+              .getElementById("footer")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
           className={menu === "contact-us" ? "active" : ""}
         >
           contact us
